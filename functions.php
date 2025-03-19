@@ -1,7 +1,7 @@
 <?php
 function urlIs($url)
 {
-    return $_SERVER["REQUEST_URI"] === $url;
+    return $_SERVER["REQUEST_URI"] === BASE_URL.$url;
 }
 function dd($value)
 {
@@ -10,17 +10,27 @@ function dd($value)
     echo '</pre>';
     die();
 }
-// function basePath($path)
-// {
-//     return BASE_PATH . $path;
-// }
+function basePath($path)
+{
+    return BASE_PATH . $path;
+}
+function views($path)
+{
+    return basePath('views/'.$path);
+}
+
+function Url($url)
+{
+    echo BASE_URL . $url;
+    return BASE_URL . $url;
+}
 function urlRelative($path)
 {
     return $_SESSION["BASE_URL"] . $path;
 }
-// function abort($code)
-// {
-//     http_response_code($code);
-//     require basePath("views/$code.php");
-//     die();
-// }
+function abort($code)
+{
+    http_response_code($code);
+    require basePath("views/$code.view.php");
+    die();
+}
