@@ -15,17 +15,17 @@
                     <?php foreach ($notes as $note ){ $idNote = $note['id']?>
                         
                         <li>
-                            <a href="<?php Url("/note?id=$idNote")?>" class="text-blue-500 hover:underline"><?= $note['body'] ?></a>
+                            <a href="<?= Url("/note?id=$idNote")?>" class="text-blue-500 hover:underline"><?= $note['body'] ?></a>
                         </li>
                     <?php } ?>
                 </ul>
                 <p class="mt-6">
-                    <a href="<?php Url("/notes/create")?>" class="text-blue-500 hover:underline">Create Note</a>
+                    <a href="<?= Url("/notes/create")?>" class="text-blue-500 hover:underline">Create Note</a>
                 </p>
             </div>
         </main>
     </div>
-    <?php require 'includes/footer.php' ?>
+    <?php require views('/includes/footer.php') ?>
 </body>
 
 </html>

@@ -1,7 +1,10 @@
 <?php 
+namespace Core;
+use PDO;
+use PDOException;
+
 class DataBase
 {
-    
     public $connect;
 
     public function __construct($config, $userName, $password)

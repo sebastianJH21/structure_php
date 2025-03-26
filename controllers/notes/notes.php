@@ -1,4 +1,5 @@
 <?php 
+use Core\DataBase;
 $config = require basePath('config.php');
 $db = new DataBase($config['dataBase'], $config['credentials']['userName'], $config['credentials']['password']);
 $heading = "My Notes";

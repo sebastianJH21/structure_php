@@ -1,5 +1,4 @@
 <?php 
-// dd(BASE_URL.'/');
 return [
     BASE_URL.'/' => "controllers/index.php",
     BASE_URL.'/about' => "controllers/about.php",

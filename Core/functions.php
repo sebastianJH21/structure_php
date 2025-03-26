@@ -21,7 +21,6 @@ function views($path)
 
 function Url($url)
 {
-    echo BASE_URL . $url;
     return BASE_URL . $url;
 }
 function urlRelative($path)
@@ -33,4 +32,10 @@ function abort($code)
     http_response_code($code);
     require basePath("views/$code.view.php");
     die();
+}
+function authorize($validate){
+    if (!$validate) {
+        abort(403);
+    }
+    return true;
 }
