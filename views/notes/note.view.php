@@ -18,6 +18,9 @@
                 <form class="mt-6" method="POST">
                     <input type="text" name="_method" value="DELETE" hidden>
                     <input type="text" name="id" value="<?= $note[0]['id'] ?>" hidden>
+                    <p class="mb-3">
+                        <a href="<?= Url("/note/edit?id={$note[0]['id']}") ?>" class="text-blue-500 hover:underline">Edit Note</a>
+                    </p>
                     <button class="text-red-500 hover:underline">Delete Note</button>
                 </form>
             </div>
