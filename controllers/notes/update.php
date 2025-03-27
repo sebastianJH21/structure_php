@@ -1,7 +1,7 @@
 <?php 
 use Core\DataBase;
 $db = new DataBase;
-$currentUserId = 25;
+$currentUserId = 1;
 $params = [
     'id' =>  $_GET["id"]
 ];

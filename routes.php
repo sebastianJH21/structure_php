@@ -14,6 +14,10 @@ $router->post(BASE_URL.'/note/create', "controllers/notes/save.php");
 //Edit note
 $router->get(BASE_URL.'/note/edit', "controllers/notes/edit.php");
 $router->patch(BASE_URL.'/note/edit', "controllers/notes/update.php");
-//Login
+//Register
 $router->get(BASE_URL.'/register', "controllers/register/create.php");
 $router->post(BASE_URL.'/register', "controllers/register/save.php");
+//Login
+$router->get(BASE_URL.'/login', "controllers/session/create.php");
+$router->post(BASE_URL.'/login', "controllers/session/save.php");
+$router->delete(BASE_URL.'/session', "controllers/session/destroy.php");

@@ -39,3 +39,10 @@ function authorize($validate){
     }
     return true;
 }
+function validateLogin(){
+    dd($_SESSION['user']);
+    if (!isset($_SESSION['user'])) {
+        header('location: ' . Url('/login'));
+        exit;
+    }
+}

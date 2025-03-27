@@ -25,11 +25,19 @@
                             <?php if ($_SESSION['user'] ?? false) { ?>
                                 <img class="size-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
                             <?php } else { ?>
-                                <a href="<?= Url('/register') ?>" class="text-gray-300 rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Register</a>
-                                <a href="<?= Url('/login') ?>" class="text-gray-300 rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Log In</a>
+                                <a href="<?= Url('/register') ?>" class="<?= urlIs('/register') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> text-gray-300 rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Register</a>
+                                <a href="<?= Url('/login') ?>" class="<?= urlIs('/login') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> text-gray-300 rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Log In</a>
                             <?php } ?>
                         </div>
                     </div>
+                    <?php if ($_SESSION['user'] ?? false) { ?>
+                        <div class="ml-3">
+                            <form method="POST" action="<?= Url('/session') ?>">
+                                <input type="text" name="_method" value="DELETE" hidden>
+                                <button type="submit" class="text-gray-300 rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Log Out</button>
+                            </form>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 <?php 
 use Core\DataBase;
 $db = new DataBase;
-
+$heading = "Register";
 $email = $_POST['email'];
 $password = $_POST['password']; 
 
@@ -11,8 +11,9 @@ $user = $db->queryReturnBoolean('SELECT * FROM users WHERE email = :email', ['em
 
 if($user) {
     $errors['email'] = 'This email is already exist';
-    header('location: ' . Url('/'));
-    exit;
+    require views('register/create.view.php');
+    // header('location: ' . Url('/login'));
+    
     
 }else{
     $params = [
@@ -21,10 +22,10 @@ if($user) {
     ];
     $db->save('users', $params);
 
-    $_SESSION['user'] = [
-        'email' => $email
-    ];
-    header('location: ' . Url('/'));
+    // $_SESSION['user'] = [
+    //     'email' => $email
+    // ];
+    header('location: ' . Url('/login'));
     exit;
 }
 
