@@ -7,19 +7,19 @@ class DataBase
 {
     public $connect;
 
-    public function __construct($config, $userName, $password)
+    public function __construct()
     {
         try {
-            $dsn = 'mysql:'. http_build_query($config,' ',';');
-            $this->connect = new PDO($dsn, $userName, $password, [
+            $config = require basePath('config.php');
+            $dsn = 'mysql:'. http_build_query($config['dataBase'],' ',';');
+            $this->connect = new PDO($dsn, $config['credentials']['userName'], $config['credentials']['password'], [
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
             ]);
-            // $this->connect = new PDO("mysql:host=".$config['host'].";dbname=".$config['dbname'].";charset=".$config['charset'], $userName, $password);
-            // $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $exc) {
             echo "Error en la conexión: " . $exc->getMessage();
         }
     }
+    
     public function getFormatJson($array)
     {
         header('Content-Type: application/json; charset=utf-8');

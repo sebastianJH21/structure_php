@@ -1,9 +1,6 @@
 <?php
-
 use Core\DataBase;
-
-$config = require basePath('config.php');
-$db = new DataBase($config['dataBase'], $config['credentials']['userName'], $config['credentials']['password']);
+$db = new DataBase;
 
 $heading = "Create Note";
 
