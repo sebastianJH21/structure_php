@@ -36,15 +36,16 @@ class DataBase
             return $exc;
         }
     }
-    public function queryReturnBoolean($sql, $params = [])
-    {
+    public function queryReturnBoolean($sql, $params = []) {
         try {
             $statement = $this->connect->prepare($sql);
             $statement->execute($params);
-            return true;
+            $result = $statement->fetchColumn(); // Obtiene el valor de la primera columna
+    
+            return (bool) $result; // Convierte el resultado a booleano (true si existe, false si no)
         } catch (PDOException $exc) {
             var_dump($exc);
-            return $exc;
+            return false; // En caso de error, devuelve false
         }
     }
     public function save($table, $params)

@@ -2,8 +2,6 @@
 use Core\DataBase;
 $db = new DataBase;
 
-$heading = "Create Note";
-
 $errors = [];
 if (strlen($_POST["body"]) === 0) {
     $errors['body'] = 'A body is required';

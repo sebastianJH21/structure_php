@@ -1,14 +1,4 @@
 <?php 
-
-// return [
-//     BASE_URL.'/' => "controllers/index.php",
-//     BASE_URL.'/about' => "controllers/about.php",
-//     BASE_URL.'/contact' => "controllers/contact.php",
-//     BASE_URL.'/notes' => "controllers/notes/notes.php",
-//     BASE_URL.'/notes/create' => "controllers/notes/create.php",
-//     BASE_URL.'/note' => "controllers/notes/note.php"
-// ];
-
 //Navegation
 $router->get(BASE_URL.'/', "controllers/index.php");
 $router->get(BASE_URL.'/about', "controllers/about.php");
@@ -24,3 +14,6 @@ $router->post(BASE_URL.'/note/create', "controllers/notes/save.php");
 //Edit note
 $router->get(BASE_URL.'/note/edit', "controllers/notes/edit.php");
 $router->patch(BASE_URL.'/note/edit', "controllers/notes/update.php");
+//Login
+$router->get(BASE_URL.'/register', "controllers/register/create.php");
+$router->post(BASE_URL.'/register', "controllers/register/save.php");
